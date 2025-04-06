@@ -1,7 +1,6 @@
 import { qs } from './utils.mjs';
 
 // OpenWeather API configuration
-const WEATHER_API_KEY = 'd552372fbe653020f3fd587a95e08389'; 
 const DEFAULT_LOCATION = { lat: 49.6956, lon: -112.8451 };
 
 // Fetch current weather data (free API)
@@ -171,5 +170,5 @@ async function initWeather() {
 
 // Run when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  initWeather();
+  // initWeather();
 });
