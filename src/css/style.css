@@ -1,226 +1,279 @@
 :root {
-    --primary: #3a86ff;
-    --primary-dark: #2563eb;
-    --secondary: #8ecae6;
-    --text: #1e293b;
-    --text-light: #64748b;
-    --bg-light: #f8fafc;
-    --card-bg: #ffffff;
-    --border-radius: 12px;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text);
-    line-height: 1.5;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.5rem;
-  }
-  
-  /* Header Styles */
+  --primary: #9961b8;
+  --primary-dark: #7a4e96;
+  --secondary: #c09edb;
+  --accent: #ae6ad2;
+  --text: #0d0a0f;
+  --text-light: #4a3d52;
+  --bg-light: #f8f5f9;
+  --card-bg: #ffffff;
+  --border-radius: 12px;
+  --shadow: 0 4px 12px rgba(153, 97, 184, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(153, 97, 184, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  color: var(--primary);
+  filter: drop-shadow(0 2px 4px rgba(153, 97, 184, 0.2));
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo-container:hover .logo-icon {
+  color: var(--accent);
+  transform: scale(1.08) rotate(5deg);
+}
+
+h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+}
+
+.login {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(153, 97, 184, 0.25);
+}
+
+.login:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(153, 97, 184, 0.3);
+}
+
+/* Main Layout */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Box styling */
+.box {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(153, 97, 184, 0.05);
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(153, 97, 184, 0.12);
+  border-color: rgba(153, 97, 184, 0.1);
+}
+
+.box h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.box h2 i {
+  color: var(--accent);
+}
+
+/* Bookmarks styling */
+.bookmarks ul {
+  list-style: none;
+}
+
+.bookmarks li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(153, 97, 184, 0.08);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.bookmarks li i {
+  color: var(--secondary);
+  margin-right: 0.75rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.bookmarks li:hover {
+  transform: translateX(5px);
+  color: var(--primary);
+}
+
+.bookmarks li:hover i {
+  color: var(--primary);
+  transform: scale(1.2);
+}
+
+.bookmarks li:last-child {
+  border-bottom: none;
+}
+
+/* Weather styling */
+.weather-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  text-shadow: 0 2px 10px rgba(174, 106, 210, 0.2);
+}
+
+.temperature {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--primary);
+}
+
+.weather ul {
+  list-style: none;
+  color: var(--text-light);
+}
+
+.weather li {
+  padding: 0.35rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.weather li i {
+  color: var(--secondary);
+  margin-right: 0.75rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* News styling */
+.news-item {
+  padding: 1.15rem;
+  margin-bottom: 0.85rem;
+  border-radius: 8px;
+  background-color: rgba(153, 97, 184, 0.03);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.news-item:hover {
+  background-color: rgba(153, 97, 184, 0.06);
+  border-left: 3px solid var(--accent);
+  transform: translateX(3px);
+}
+
+/* Todo styling */
+.todo ul {
+  list-style: none;
+}
+
+.todo li {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(153, 97, 184, 0.08);
+}
+
+.todo li:last-child {
+  border-bottom: none;
+}
+
+.todo input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 1.35rem;
+  width: 1.35rem;
+  border: 2px solid var(--secondary);
+  border-radius: 6px;
+  margin-right: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.todo input[type="checkbox"]:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  position: relative;
+}
+
+.todo input[type="checkbox"]:checked::after {
+  content: '✓';
+  color: white;
+  position: absolute;
+  font-size: 0.8rem;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.todo input[type="checkbox"]:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   header {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .logo-icon {
-    color: var(--primary);
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  
-  .logo-container:hover .logo-icon {
-    color: var(--primary-dark);
-    transform: scale(1.05);
   }
   
   h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
+    font-size: 1.35rem;
   }
   
-  .login {
-    background-color: var(--primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .login:hover {
-    background-color: var(--primary-dark);
-  }
-  
-  /* Main Layout */
-  main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  /* Box styling */
   .box {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
     padding: 1.5rem;
-    box-shadow: var(--shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  
-  .box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .box h2 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  /* Bookmarks styling */
-  .bookmarks ul {
-    list-style: none;
-  }
-  
-  .bookmarks li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    transition: transform 0.15s ease;
-    cursor: pointer;
-  }
-  
-  .bookmarks li:hover {
-    transform: translateX(5px);
-    color: var(--primary);
-  }
-  
-  .bookmarks li:last-child {
-    border-bottom: none;
-  }
-  
-  /* Weather styling */
-  .weather-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .temperature {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  
-  .weather ul {
-    list-style: none;
-    color: var(--text-light);
-  }
-  
-  .weather li {
-    padding: 0.25rem 0;
-  }
-  
-  /* News styling */
-  .news-item {
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    border-radius: 8px;
-    background-color: rgba(0,0,0,0.02);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .news-item:hover {
-    background-color: rgba(0,0,0,0.04);
-  }
-  
-  /* Todo styling */
-  .todo ul {
-    list-style: none;
-  }
-  
-  .todo li {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  
-  .todo li:last-child {
-    border-bottom: none;
-  }
-  
-  .todo input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    height: 1.25rem;
-    width: 1.25rem;
-    border: 2px solid var(--primary);
-    border-radius: 4px;
-    margin-right: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .todo input[type="checkbox"]:checked {
-    background-color: var(--primary);
-    position: relative;
-  }
-  
-  .todo input[type="checkbox"]:checked::after {
-    content: '✓';
-    color: white;
-    position: absolute;
-    font-size: 0.75rem;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: row;
-      align-items: center;
-    }
-    
-    h1 {
-      font-size: 1.25rem;
-    }
-    
-    .box {
-      padding: 1.25rem;
-    }
-  }
-  
-  /* Add web font */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+}
+
+/* Add web fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
