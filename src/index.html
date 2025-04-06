@@ -6,6 +6,7 @@
   <title>Quick Attack</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="/js/main.js"></script>
 </head>
 <body>
   <div class="container">
@@ -32,7 +33,7 @@
         </ul>
       </section>
 
-      <section class="box weather">
+      <!-- <section class="box weather">
         <h2><i class="fas fa-cloud-sun"></i> Weather</h2>
         <div class="weather-icon">⛅</div>
         <div class="temperature">27°C</div>
@@ -41,6 +42,16 @@
           <li><i class="fas fa-tint"></i> Condition 2</li>
           <li><i class="fas fa-sun"></i> Condition 3</li>
         </ul>
+      </section> -->
+
+      <section class="box weather">
+        <h2><i class="fas fa-cloud-sun"></i> Weather</h2>
+        <div class="weather-icon">⛅</div>
+        <div class="temperature">--°C</div>
+        <ul>
+          <li><i class="fas fa-spinner fa-pulse"></i> Loading weather data...</li>
+        </ul>
+        <!-- Forecast will be inserted here by JavaScript -->
       </section>
 
       <section class="box news">
