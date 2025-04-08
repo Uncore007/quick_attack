@@ -1,3 +1,6 @@
+/* Add web fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
   --primary: #9961b8;
   --primary-dark: #7a4e96;
@@ -329,6 +332,3 @@ main {
     padding: 1.5rem;
   }
 }
-
-/* Add web fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
