@@ -1,9 +1,25 @@
-import { qs } from './utils.mjs';
+import { qs, getLocalStorage, setLocalStorage } from './utils.mjs';
+import BookmarksModule from './bookmarks.js';
 
 const DEFAULT_LOCATION = { lat: 49.6956, lon: -112.8451 };
 const WEATHER_API_KEY = import.meta.env.VITE_TOMORROW_API_KEY;
+const WEATHER_CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+function isCacheValid(cacheKey) {
+  const cachedData = getLocalStorage(cacheKey);
+  if (!cachedData) return false;
+  
+  const now = new Date().getTime();
+  return (now - cachedData.timestamp) < WEATHER_CACHE_DURATION;
+}
 
 async function getCurrentWeather(coords = DEFAULT_LOCATION) {
+  const cacheKey = `weather_current_${coords.lat}_${coords.lon}`;
+  
+  if (isCacheValid(cacheKey)) {
+    return getLocalStorage(cacheKey).data;
+  }
+  
   try {
     const response = await fetch(
       `https://api.tomorrow.io/v4/weather/realtime?location=${coords.lat},${coords.lon}&units=metric&apikey=${WEATHER_API_KEY}`
@@ -13,7 +29,14 @@ async function getCurrentWeather(coords = DEFAULT_LOCATION) {
       throw new Error(`Weather data fetch failed: ${response.status} ${response.statusText}`);
     }
     
-    return await response.json();
+    const data = await response.json();
+    
+    setLocalStorage(cacheKey, {
+      timestamp: new Date().getTime(),
+      data: data
+    });
+    
+    return data;
   } catch (error) {
     console.error('Error fetching current weather:', error);
     return null;
@@ -21,6 +44,12 @@ async function getCurrentWeather(coords = DEFAULT_LOCATION) {
 }
 
 async function getForecastWeather(coords = DEFAULT_LOCATION) {
+  const cacheKey = `weather_forecast_${coords.lat}_${coords.lon}`;
+  
+  if (isCacheValid(cacheKey)) {
+    return getLocalStorage(cacheKey).data;
+  }
+  
   try {
     const response = await fetch(
       `https://api.tomorrow.io/v4/timelines?location=${coords.lat},${coords.lon}&fields=temperature,weatherCode,humidity,windSpeed&timesteps=1d&units=metric&apikey=${WEATHER_API_KEY}`
@@ -30,7 +59,14 @@ async function getForecastWeather(coords = DEFAULT_LOCATION) {
       throw new Error(`Forecast data fetch failed: ${response.status} ${response.statusText}`);
     }
     
-    return await response.json();
+    const data = await response.json();
+    
+    setLocalStorage(cacheKey, {
+      timestamp: new Date().getTime(),
+      data: data
+    });
+    
+    return data;
   } catch (error) {
     console.error('Error fetching forecast weather:', error);
     return null;
@@ -185,5 +221,10 @@ async function initWeather() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize weather
   initWeather();
+  
+  // Initialize bookmarks
+  const bookmarksModule = new BookmarksModule();
+  bookmarksModule.init();
 });
