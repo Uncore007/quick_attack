@@ -3,69 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quick Attack</title>
-  <link rel="stylesheet" href="/css/style.css" />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Quick Attack - Your personalized dashboard for weather, news, bookmarks, and task management">
+  <meta name="keywords" content="dashboard, weather, news, bookmarks, todo list, tasks">
+  <meta name="author" content="Joseph Williams">
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Quick Attack Dashboard">
+  <meta property="og:description" content="Your personalized dashboard for weather, news, bookmarks, and task management">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quickattack.example.com">
+  <!-- Theme color for browser UI -->
+  <meta name="theme-color" content="#9961b8">
+  
+  <title>Quick Attack Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </head>
 <body>
   <div class="container">
     <header>
-        <div class="logo-container">
-          <svg class="logo-icon" width="30" height="30" viewBox="0 0 24 24">
+        <div class="logo-container" tabindex="0" aria-label="Quick Attack Logo">
+          <svg class="logo-icon" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M11 15H6L13 1V9H18L11 23V15Z" />
           </svg>
           <h1>Quick Attack</h1>
         </div>
-        <div class="login"><i class="fas fa-user"></i> Sign In</div>
+        <div class="login" tabindex="0" role="button" aria-label="Sign In">
+          <i class="fas fa-user" aria-hidden="true"></i> Sign In
+        </div>
     </header>
 
     <main>
-      <section class="box bookmarks">
-        <h2><i class="fas fa-bookmark"></i> Bookmarks</h2>
-        <ul>
+      <section class="box bookmarks" aria-labelledby="bookmarks-heading">
+        <h2 id="bookmarks-heading"><i class="fas fa-bookmark" aria-hidden="true"></i> Bookmarks</h2>
+        <ul aria-label="Bookmark links">
           <!-- Bookmarks will be loaded here dynamically -->
-          <li><i class="fas fa-spinner fa-pulse"></i> Loading bookmarks...</li>
+          <li><i class="fas fa-spinner fa-pulse" aria-hidden="true"></i> Loading bookmarks...</li>
         </ul>
       </section>
 
-      <!-- <section class="box weather">
-        <h2><i class="fas fa-cloud-sun"></i> Weather</h2>
-        <div class="weather-icon">⛅</div>
-        <div class="temperature">27°C</div>
-        <ul>
-          <li><i class="fas fa-wind"></i> Condition 1</li>
-          <li><i class="fas fa-tint"></i> Condition 2</li>
-          <li><i class="fas fa-sun"></i> Condition 3</li>
-        </ul>
-      </section> -->
-
-      <section class="box weather">
-        <h2><i class="fas fa-cloud-sun"></i> Weather</h2>
-        <div class="weather-icon">⛅</div>
-        <div class="temperature">--°C</div>
-        <ul>
-          <li><i class="fas fa-spinner fa-pulse"></i> Loading weather data...</li>
+      <section class="box weather" aria-labelledby="weather-heading">
+        <h2 id="weather-heading"><i class="fas fa-cloud-sun" aria-hidden="true"></i> Weather</h2>
+        <div class="weather-icon" aria-hidden="true">⛅</div>
+        <div class="temperature" aria-live="polite">--°C</div>
+        <ul aria-label="Weather conditions">
+          <li><i class="fas fa-spinner fa-pulse" aria-hidden="true"></i> Loading weather data...</li>
         </ul>
         <!-- Forecast will be inserted here by JavaScript -->
       </section>
 
-      <section class="box news">
-        <h2><i class="fas fa-newspaper"></i> News</h2>
-        <div class="news-item">News Item 1</div>
-        <div class="news-item">News Item 2</div>
-        <div class="news-item">News Item 3</div>
+      <section class="box news" aria-labelledby="news-heading">
+        <h2 id="news-heading"><i class="fas fa-newspaper" aria-hidden="true"></i> News</h2>
+        <!-- News will be loaded here dynamically -->
       </section>
 
-      <section class="box todo">
-        <h2><i class="fas fa-tasks"></i> To Do</h2>
-        <ul>
-          <li><input type="checkbox"> Task 1</li>
-          <li><input type="checkbox"> Task 2</li>
-          <li><input type="checkbox"> Task 3</li>
+      <section class="box todo" aria-labelledby="todo-heading">
+        <h2 id="todo-heading"><i class="fas fa-tasks" aria-hidden="true"></i> To Do</h2>
+        <ul aria-label="Todo tasks">
+          <!-- Todo items will be loaded here dynamically -->
         </ul>
       </section>
     </main>
+    
+    <footer>
+      <p>Quick Attack Dashboard &copy; 2023 | <a href="#" aria-label="View privacy policy">Privacy Policy</a></p>
+    </footer>
   </div>
 </body>
 </html>
