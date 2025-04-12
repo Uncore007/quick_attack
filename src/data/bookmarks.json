@@ -1,0 +1,40 @@
+{
+  "bookmarks": [
+    {
+      "id": 1,
+      "title": "GitHub",
+      "url": "https://github.com",
+      "icon": "fab fa-github"
+    },
+    {
+      "id": 2,
+      "title": "Google",
+      "url": "https://google.com",
+      "icon": "fab fa-google"
+    },
+    {
+      "id": 3,
+      "title": "YouTube",
+      "url": "https://youtube.com",
+      "icon": "fab fa-youtube"
+    },
+    {
+      "id": 4,
+      "title": "Stack Overflow",
+      "url": "https://stackoverflow.com",
+      "icon": "fab fa-stack-overflow"
+    },
+    {
+      "id": 5,
+      "title": "MDN Web Docs",
+      "url": "https://developer.mozilla.org",
+      "icon": "fas fa-book"
+    },
+    {
+      "id": 6,
+      "title": "ChatGPT",
+      "url": "https://chat.openai.com",
+      "icon": "fas fa-comment-dots"
+    }
+  ]
+}

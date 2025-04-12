@@ -1,3 +1,6 @@
+/* Add web fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
   --primary: #9961b8;
   --primary-dark: #7a4e96;
@@ -262,6 +265,30 @@ main {
   transform: translateX(3px);
 }
 
+.news-item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.news-date {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.news-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.news-item.error {
+  color: #e74c3c;
+  text-align: center;
+  padding: 1rem;
+}
+
 /* Todo styling */
 .todo ul {
   list-style: none;
@@ -314,6 +341,85 @@ main {
   transform: scale(1.05);
 }
 
+/* Todo list styles */
+.todo-input-container {
+  display: flex;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(153, 97, 184, 0.08);
+  padding-top: 1rem;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid rgba(153, 97, 184, 0.2);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.add-todo {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-todo:hover {
+  background-color: var(--accent);
+}
+
+.delete-todo {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.todo li:hover .delete-todo {
+  opacity: 0.7;
+}
+
+.delete-todo:hover {
+  opacity: 1 !important;
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.todo-text {
+  transition: all 0.2s ease;
+}
+
+.todo li.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-light);
+  opacity: 0.7;
+}
+
+.empty-todo {
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem 0;
+  border: none !important;
+  font-style: italic;
+}
+
+.empty-todo i {
+  color: var(--secondary);
+  margin-right: 0.5rem;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   header {
@@ -329,6 +435,3 @@ main {
     padding: 1.5rem;
   }
 }
-
-/* Add web fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
