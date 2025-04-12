@@ -2,6 +2,7 @@ import { qs, getLocalStorage, setLocalStorage } from './utils.mjs';
 import BookmarksModule from './bookmarks.js';
 import { initWeather } from './weather.js';
 import { initNews } from './news.js';
+import { initTodo } from './todo.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize weather
@@ -13,4 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize news
   initNews();
+  
+  // Initialize todo list
+  initTodo();
 });
